@@ -10,5 +10,4 @@ for i in range(n):
             person += 1
     
     rate = person / scores[0] * 100
-    # percent = round((person / scores[0] * 100), 3)
-    print(f'{rate:.3f}%')  
+    print(f'{rate:.3f}%')
