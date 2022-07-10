@@ -1,8 +1,6 @@
-word1, word2 = list(input().split())
+word1, word2 = input().split()
+word1 = int(word1[::-1]) # [::-1] : 역순
+word2 = int(word2[::-1])
 
-
-for i in range(0, 3):
-    word1[i] = word1[2-i]
-    word2[i] = word2[2-i]
 
 print(max(word1, word2))
