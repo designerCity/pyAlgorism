@@ -9,5 +9,3 @@ for i in range(t):
         num = n // h
         floor = h
     print(f'{floor*100 + num}')
-
-
