@@ -31,3 +31,26 @@
 
 
 
+
+def Goldbug():
+    check = [False, False] + [True] * 10000
+    # check list 에 소수만 남도록 (소수는 True)
+    for i in range(2, 101):
+        if check[i] == True:
+            for j in range(i+i, 10001, i):
+                check[j] = False
+
+    gold_num = int(input())
+    for _ in range(gold_num):
+        n = int(input())
+        
+        half_up = n // 2 # 절반
+        half_dwn = half_up
+
+        for _ in range(10000):
+            if check[half_dwn] and check[half_up]:
+                print(half_dwn, half_up)
+                break
+            half_up += 1
+            half_dwn -= 1
+Goldbug()
