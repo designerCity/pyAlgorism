@@ -4,7 +4,7 @@ m, n = map(int, input().split())
 row = []
 min_num = []
 for _ in range(m):
-    row.append(input())
+    row.append(input()) 
 
 
 for a in range(m - 7):
@@ -29,4 +29,4 @@ print(min(min_num))
 
 # 또는 4개를 한 묶음으로 보고 이 4개의 쌍이 16개 만들어지면 된다. 
 
-# 가운데가 b 인 경우와 white 인 경우를 나누어서 접근하면 좋을 것 같다.
+# 가운데가 b 인 경우와 white 인 ,
