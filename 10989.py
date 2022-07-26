@@ -16,7 +16,7 @@ n = int(sys.stdin.readline())
 n_list = [0] * 10001
 
 # 입력값을 받을 때마다, 그 입력값과 같은 인덱스에 +1을 헤준다.
-for i in range(n):
+for _ in range(n):
     n_list[int(sys.stdin.readline())] += 1
 
 
