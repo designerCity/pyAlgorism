@@ -6,13 +6,12 @@ for _ in range(a):
     hv_list.append(input())
 srch = []
 for _ in range(b):
-    srch.append(input())
+    srch.append((input()))
 
 cnt = 0
 for i in range(b):
     if srch[i] in hv_list:
         cnt +=1
-    
         
 print(cnt)
 
