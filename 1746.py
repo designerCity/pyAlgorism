@@ -35,7 +35,7 @@ print(len(result))
 for i in result:
     print(i)
 
-# 다른 방법
+# list 를 활용한 다른 방법
 import sys
 
 N, M = map(int, sys.stdin.readline().split())
