@@ -41,24 +41,28 @@
 #         print(j, end=' ')
 
 
-
 import math
 t = int(input())
 s = []
-a = []
+answer = []
 gcd = 0
+# math gcd 는 최대 공약수를 구하는 method 이다. 
+# # 각 정수를 받고 그 이후에 차이가 1 나는 index 끼리 뺄셈한 것들을 최대공약수를 구해준다.
 for i in range(t):
     s.append(int(input()))
     if i == 1:
-        gcd = abs(s[1] - s[0])
+        gcd = abs(s[1] - s[0])  
     gcd = math.gcd(abs(s[i] - s[i - 1]), gcd)
+
 gcd_a = int(gcd ** 0.5)
+# 최대 공약수는 짝을 이루고 있기 때문에 루트까지만 탐색해도 된다. 
 for i in range(2, gcd_a + 1):
     if gcd % i == 0:
-        a.append(i)
-        a.append(gcd // i)
-a.append(gcd)
-a = list(set(a))
-a.sort()
-for i in a:
+        answer.append(i)
+        answer.append(gcd // i)
+answer.append(gcd)
+answer = list(set(answer))
+answer.sort()
+
+for i in answer:
     print(i, end = ' ')
