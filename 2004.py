@@ -19,8 +19,9 @@
 #         print(cnt)
 #         break
 
+# 두 번째 code 조합의 근본을 찾아서
 n, m = map(int, input().split())
-
+# n! 에서 2, 5로 몇 번 나누어 지는 지를 조사
 def two_cnt(n):
     two = 0
     while n != 0:
