@@ -1,14 +1,8 @@
-    
 N = int(input())
 
 score_li = [list(map(int, input().split())) for _ in range(N)]
 visited = [False for _ in range(N)]
 min_num = int(1e9)
-
-# # 각 점수를 더하는 함수
-# def plusNum(num1, num2):
-#     total = score_li[num1][num2]
-#     return total
 
 # 모든 경우의 수는 총 N / 2 개로 이루어져 있고, 
 def dfs(depth, index):
@@ -34,58 +28,6 @@ def dfs(depth, index):
 dfs(0, 0)
 print(min_num)
 
-    
-N = int(input())
-
-score_li = [list(map(int, input().split())) for _ in range(N)]
-visited = [False for _ in range(N)]
-min_num = int(1e9)
-
-# 각 점수를 더하는 함수
-def plusNum(num1, num2):
-    total = score_li[num1][num2] + score_li[num2][num1]
-    return total
-
-# 모든 경우의 수는 총 N / 2 개로 이루어져 있고, 
-def dfs(depth, index):
-    global min_num
-    if depth == N // 2: # 이떄, visited 는 T  N //2 개, F N // 2개로 이루어져 있다.
-        team1 = [] # 각 team 의 점수
-        team2 = []
-        team1_sc = 0
-        team2_sc = 0
-        # 능력치의 합을 구하는 코드
-        for i in range(N):
-            if visited[i] == True:
-                team1.append[i]
-            else:
-                team2.append[i]
-            print(team1)
-        for i in range(N//2):
-            for j in range(N//2):
-                if visited[i] and visited[j]: # T and T -> T
-                    team1 += plusNum(i, j)
-                elif not visited[i] and not visited[j]: # F and F
-                    team2 += plusNum(i, j)
-
-
-            # for j in range(N):
-            #     if visited[i] and visited[j]: # T and T -> T
-            #         team1 += plusNum(i, j)
-            #     elif not visited[i] and not visited[j]: # F and F
-            #         team2 += plusNum(i, j)
-        # min_num = min(min_num, abs(team1-team2))
-        return 
-
-    for i in range(index, N):
-        
-        if not visited[i]:
-            visited[i] = True
-            dfs(depth+1, i+1)
-            visited[i] = False
-
-dfs(0, 0)
-print(min_num)
 
 # def dfs(depth, index):
 #     global minAns
