@@ -29,6 +29,8 @@ dfs(0, 0)
 print(min_num)
 
 
+
+
 # def dfs(depth, index):
 #     global minAns
 #     # 백트래킹 답 체크 시점
