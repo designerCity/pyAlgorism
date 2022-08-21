@@ -5,37 +5,28 @@
 
 # Queen 은 같은 index 를 가질 수도, 같은 줄에 있을 수도 없다.
 # # 대각선도 안됨.
-
 n = int(input())
 # 체스판 한 줄
-chess = []
-for i in range(n):
-    chess.append(True)
-# # 체스판
-all = []
-for j in range(n):
-    all.append(chess)
+chess = [0] * n
+
+def is_promising(x):
+    for i in range(x):
+        if chess[x] == chess[i] or abs(chess[x] - chess[i]) == abs(x - i):
+            return False    
+    return True
 
 cnt = 0
 # # 경우의 수를 탐색
 def dfs(depth): # idx 는 각 줄을 의미
-    global all, cnt
-    if depth == n:
+    global cnt
+    if depth == n: # Queen 이 n개 배치되었을 때, 
         cnt += 1
-        return
+        return # 함수에서 종료됨
 
-    # Queen이 각 줄에서 올 수 있는 경우의 수
     for i in range(n): # i 는 row 의 인덱스 을 의미한다.
-        if all[depth][i] == True:     # depth 줄의 i 번째 index 가 기준이 된다.
-            # for j in range(depth, n): # j 지울려고 하는 row
-            all[i][i] = False     # 같은 세로 줄
-            if i - depth >= 0:
-                all[i][i - depth] = False  # 대각선 오른쪽
-            if i + depth < n:
-                all[i][i + depth] = False # 대각선 오른쪽
-
+        chess[depth] = i
+        if is_promising(depth):
             dfs(depth + 1)
-    # 안되는 이유가 False 로 변경된 값들이 다음 실행에서 True 로 변경되지 않아서 인가 싶다.
 # dfs 실행            
 dfs(0)
 # 출력
