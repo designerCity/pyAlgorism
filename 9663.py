@@ -23,10 +23,11 @@ def dfs(depth): # idx 는 각 줄을 의미
         cnt += 1
         return # 함수에서 종료됨
 
-    for i in range(n): # i 는 row 의 인덱스 을 의미한다.
-        chess[depth] = i
-        if is_promising(depth):
-            dfs(depth + 1)
+    else:
+        for i in range(n): # i 는 row 의 인덱스 을 의미한다.
+            chess[depth] = i
+            if is_promising(depth):
+                dfs(depth + 1)
 # dfs 실행            
 dfs(0)
 # 출력
