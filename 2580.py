@@ -29,4 +29,28 @@ for j in range(9):
     # zero 가 1개 이면
     if zero == 1:
         srch(j)
+# # 여기까지는 맞다.
+
+# sudoku1 = sudoku
+# print(sudoku1)
+
+def srch_ver(line):
+    oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    idx = 0
+    for i in range(9):
+        if sudoku[i][line] == 0:
+            idx = i
+            continue
+        else:
+            oneToNine.remove(sudoku[i][line])
+    sudoku[idx][line] = oneToNine[0]
+    return sudoku
+# 세로줄 탐색
+for j in range(9):
+    zero_vtcl = 0
+    for i in range(9):
+        if sudoku[i][j] == 0:
+            zero_vtcl += 1
+    if zero_vtcl == 1:
+        srch_ver(j)
 print(sudoku)
