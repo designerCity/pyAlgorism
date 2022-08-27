@@ -29,10 +29,6 @@ for j in range(9):
     # zero 가 1개 이면
     if zero == 1:
         srch(j)
-# # 여기까지는 맞다.
-
-# sudoku1 = sudoku
-# print(sudoku1)
 
 def srch_ver(line):
     oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -54,3 +50,4 @@ for j in range(9):
     if zero_vtcl == 1:
         srch_ver(j)
 print(sudoku)
+# 여기까지 완료

@@ -6,6 +6,7 @@ operator_li = list(map(int, input().split()))
 
 maximum = -1e9
 minimum = 1e9
+
 def dfs(depth, total, plus, minus, multiply, divide):
     global maximum, minimum
     if depth == t:
@@ -20,6 +21,7 @@ def dfs(depth, total, plus, minus, multiply, divide):
         dfs(depth + 1, total * num_li[depth], plus, minus, multiply - 1, divide)
     if divide:
         dfs(depth + 1, int(total / num_li[depth]), plus, minus, multiply, divide - 1)
+
 dfs(1, num_li[0], operator_li[0], operator_li[1], operator_li[2], operator_li[3])
 print(maximum)
 print(minimum)
