@@ -9,7 +9,7 @@ for _ in range(9):
     sudoku.append(list(map(int, input().split())))
 
 # 1-9에서 탐색하여 채워 넣는 코드 / line 은 list
-def srch(line):
+def srchRow(line):
     oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     idx = 0
     for i in range(9):
@@ -20,17 +20,8 @@ def srch(line):
             oneToNine.remove(sudoku[line][i])
     sudoku[line][idx] = oneToNine[0]
     return sudoku[line]
-# 가로줄 탐색
-for j in range(9):
-    zero = 0
-    for i in range(9):
-        if sudoku[j][i] == 0:
-            zero += 1
-    # zero 가 1개 이면
-    if zero == 1:
-        srch(j)
 
-def srch_ver(line):
+def srchColumn(line):
     oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     idx = 0
     for i in range(9):
@@ -42,15 +33,6 @@ def srch_ver(line):
     sudoku[idx][line] = oneToNine[0]
     return sudoku
 # 세로줄 탐색
-for j in range(9):
-    zero_vtcl = 0
-    for i in range(9):
-        if sudoku[i][j] == 0:
-            zero_vtcl += 1
-    if zero_vtcl == 1:
-        srch_ver(j)
-print(sudoku)
-# 여기까지 완료
 # 3 * 3 의 네모 박스를 해결하면 완료된다.
 
 def srch_box(c, r):
@@ -69,6 +51,24 @@ def srch_box(c, r):
         sudoku[idx1][idx2] = oneToNine[0]
     return sudoku
 
+# 가로줄 탐색
+for j in range(9):
+    zero = 0
+    for i in range(9):
+        if sudoku[j][i] == 0:
+            zero += 1
+    # zero 가 1개 이면
+    if zero == 1:
+        srchRow(j)
+
+for j in range(9):
+    zero_vtcl = 0
+    for i in range(9):
+        if sudoku[i][j] == 0:
+            zero_vtcl += 1
+    if zero_vtcl == 1:
+        srchColumn(j)
+
 c = 1
 while c <= 7:
     r = 1
@@ -77,15 +77,11 @@ while c <= 7:
         srch_box(c, r)
         r += 3
     c += 3
-# for i in range(9):
-#     li = sudoku[i]
-#     print('\n')
-#     for j in range(9):
-#         if j == 9:
-#             print(li[j]+'\n')
-#         else: 
-#             print(li[j], end=' ')
+for i in range(9):
+    li = sudoku[i]
+    for j in range(9):
+        if j == 8:
+            print(li[j])
+        else:
+            print(li[j], end=' ')
 
-
-
-        
