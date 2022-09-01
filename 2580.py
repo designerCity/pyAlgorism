@@ -51,3 +51,41 @@ for j in range(9):
         srch_ver(j)
 print(sudoku)
 # 여기까지 완료
+# 3 * 3 의 네모 박스를 해결하면 완료된다.
+
+def srch_box(c, r):
+    oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    idx1 = 0
+    idx2 = 0
+    for i in range(c - 1, c + 2):
+        for j in range(r - 1, r + 2):
+            if sudoku[i][j] == 0:
+                idx1 = i
+                idx2 = j
+                # continue
+            else:
+                oneToNine.remove(sudoku[i][j])
+    if len(oneToNine) == 1:
+        sudoku[idx1][idx2] = oneToNine[0]
+    return sudoku
+
+c = 1
+while c <= 7:
+    r = 1
+    # srch_box(c, r)
+    while r <= 7:
+        srch_box(c, r)
+        r += 3
+    c += 3
+# for i in range(9):
+#     li = sudoku[i]
+#     print('\n')
+#     for j in range(9):
+#         if j == 9:
+#             print(li[j]+'\n')
+#         else: 
+#             print(li[j], end=' ')
+
+
+
+        
