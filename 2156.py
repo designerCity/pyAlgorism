@@ -13,9 +13,8 @@ else:
     dp_li[1] = li[0] + li[1] # 둘째 계단까지 계산
 
     for i in range(2, n):
-        dp_li[i] = max(dp_li[i-3] + li[i-1] +li[i], dp_li[i-2] + li[i], dp_li[i-1]) # 마지막 + 연속 / 띄기
+        dp_li[i] = max(dp_li[i-3] + li[i-1] +li[i], dp_li[i-2] + li[i], dp_li[i-1]) 
+        # 2579 beakjoon 과 다른 점은 마지막을 포함하지 않아도 된다는 것이다. ㄷ
 
     print(dp_li[n-1])
 
-for i in range(2, 3):
-    print(i)
