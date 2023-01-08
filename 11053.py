@@ -8,5 +8,6 @@ for i in range(n): # 기준이 되는 index
         if n_list[j] < n_list[i] and li[j] > li[i]:
             li[i] = li[j]
     li[i] += 1 
+    
 # print(li)
 print(max(li))
