@@ -4,6 +4,7 @@ time_li = []
 for _ in range(n):
     time_li.append(list(map(int, input().split())))
 
+    
 time_li = sorted(time_li, key = lambda a: a[0])
 time_li = sorted(time_li, key = lambda a: a[1])
 
